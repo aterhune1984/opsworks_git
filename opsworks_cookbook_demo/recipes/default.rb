@@ -1,2 +1,2 @@
-Chef::Log.info("********** Hello, World! **********")
+Chef::Log.info("* Hello, World! This is Andy*")
 
