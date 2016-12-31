@@ -17,11 +17,15 @@ git "#{app_path}" do
     action :sync
 end
 
-execute "Create a virtual environment" do
-  command "easy_install pip"
-  command "pip install --upgrade pip"
-  command "pip install virtualenv"
-  command "virtualenv /home/ec2-user/#{app['shortname']}"
-  command "source #{app['shortname']}/bin/activate"
-  command "pip install -r #{app_path}/requirements.txt"
+bash "Create a virtual environment" do
+  user "ec2-user"
+  cwd "/home/ec2-user"
+  code <<-EOH
+      easy_install pip
+      pip install --upgrade pip
+      pip install virtualenv
+      virtualenv /home/ec2-user/#{app['shortname']}
+      source #{app['shortname']}/bin/activate
+      pip install -r #{app_path}/requirements.txt
+  EOH
 end 
