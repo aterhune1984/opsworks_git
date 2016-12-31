@@ -11,3 +11,9 @@ package "git" do
   options "--force-yes" if node["platform"] == "ubuntu" && node["platform_version"] == "14.04"
 end
 
+git #{app_path} do
+    repository app["app_source"]["url"]
+    revision app["revision"]["generic"]
+    action :sync
+end
+
