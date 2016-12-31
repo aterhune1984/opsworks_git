@@ -1,5 +1,7 @@
 app = search(:aws_opsworks_app).first
 app_path = "/srv/#{app['shortname']}"
+Chef::Log.info("app is ... #{app}")
+Chef::Log.info("app is ... #{app_path}")
 
 package "git" do
   # workaround for:
