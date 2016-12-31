@@ -27,7 +27,6 @@ bash "Create a virtual environment" do
       virtualenv /home/ec2-user/#{app['shortname']}
       source #{app['shortname']}/bin/activate
       pip install -r #{app_path}/requirements.txt
-      touch /home/ec2-user/testfile
   EOH
   not_if do
       File.exists?("/home/ec2-user/#{app['shortname']}/bin/activate")
