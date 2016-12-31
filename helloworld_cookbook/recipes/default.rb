@@ -11,8 +11,6 @@ package "git" do
   options "--force-yes" if node["platform"] == "ubuntu" && node["platform_version"] == "14.04"
 end
 
-include_recipe 'poise-python'
-
 application app_path do
     Chef::Log.info("inside application do statement")
 end
