@@ -28,4 +28,7 @@ bash "Create a virtual environment" do
       source #{app['shortname']}/bin/activate
       pip install -r #{app_path}/requirements.txt
   EOH
+  not_if do
+      File.exists?("/home/ec2-user/#{app['shortname']}/bin/activate")
+  end
 end 
