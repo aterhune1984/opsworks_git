@@ -21,8 +21,7 @@ execute "Create a virtual environment" do
   command "easy_install pip"
   command "pip install --upgrade pip"
   command "pip install virtualenv"
-  command "cd /home/ec2-user"
-  command "virtualenv #{app}"
-  command "source #{app}/bin/activate"
+  command "virtualenv /home/ec2-user/#{app['shortname']}"
+  command "source #{app['shortname']}/bin/activate"
   command "pip install -r #{app_path}/requirements.txt"
 end 
