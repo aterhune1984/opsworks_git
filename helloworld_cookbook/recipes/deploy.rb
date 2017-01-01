@@ -1,6 +1,7 @@
 app = search(:aws_opsworks_app).first
 environment=#{app['environment']['ENVIRONMENT']}
-Chef::Log.info("..............................deploy[:environment_variables]")
+
+ENV['ENVIRONMENT'] = 'Opsworks'
 
 cookbook_file "Copy a file" do
     group "root"
@@ -15,5 +16,5 @@ execute "add to chkconfig" do
 end
 
 service 'helloworld' do
-    action :start
+    action :restart
 end
