@@ -1,5 +1,5 @@
 app = search(:aws_opsworks_app).first
-Chef::Log.info("********** The app's environment is '#{app['environment']}' **********")
+Chef::Log.info("********** The app's environment is '#{app['environment']['ENVIRONMENT']}' **********")
 
 
 cookbook_file "Copy a file" do
