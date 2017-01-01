@@ -1,6 +1,7 @@
 app = search(:aws_opsworks_app).first
 environment=#{app['environment']['ENVIRONMENT']}
-Chef::Log.info("my environment variable is ... #{app}")
+Chef::Log.info("USER_ID: #{node[:deploy]['simplephpapp'][:environment_variables][:USER_ID]}")
+
 cookbook_file "Copy a file" do
     group "root"
     mode "0755"
