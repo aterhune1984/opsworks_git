@@ -1,6 +1,6 @@
 app = search(:aws_opsworks_app).first
 environment=#{app['environment']['ENVIRONMENT']}
-Chef::Log.info("my environment variable is ... #{environment}")
+Chef::Log.info("my environment variable is ... #{app}")
 cookbook_file "Copy a file" do
     group "root"
     mode "0755"
