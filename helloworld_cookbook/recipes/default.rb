@@ -37,18 +37,10 @@ bash "Create a virtual environment" do
   end
 end 
 
-cookbook_file "Copy a file" do
-    group "root"
-    mode "0755"
-    owner "root"
-    path "/etc/init.d/helloworld"
-    source "helloworld.sh"
+file '/etc/default/helloworld' do
+  content "ENVIRONMENT=#{app['environment']['ENVIRONMENT']}"
+  mode '0440'
+  owner 'root'
+  group 'root'
 end
 
-execute "add to chkconfig" do
-  command "chkconfig --add helloworld"
-end 
-
-service 'helloworld' do
-    action :start
-end 

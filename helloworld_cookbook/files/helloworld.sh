@@ -3,6 +3,8 @@
 # chkconfig: 345 99 01
 # description: some startup script
 
+[ -f /etc/default/helloworld ] && . /etc/default/helloworld
+
 case "$1" in
 start)
    /home/ec2-user/pythondemo/bin/python /srv/pythondemo/helloworld.py &
