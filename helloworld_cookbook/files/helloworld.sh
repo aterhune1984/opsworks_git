@@ -7,7 +7,7 @@
 
 case "$1" in
 start)
-   `cat /etc/default/helloworld` /home/ec2-user/pythondemo/bin/python /srv/pythondemo/helloworld.py &
+   env `cat /etc/default/helloworld` /home/ec2-user/pythondemo/bin/python /srv/pythondemo/helloworld.py &
    echo $!>/var/run/hello.pid
    ;;
 stop)
